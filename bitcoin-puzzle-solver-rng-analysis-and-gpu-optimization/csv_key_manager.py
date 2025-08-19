@@ -192,16 +192,14 @@ class CSVKeyManager:
         """Load known puzzle information"""
         # Known unsolved puzzles with addresses
         known_puzzles = {
-            71: {"address": "1By8rxztgeJeUX7qQjhAdmzQtAeqcE8Kd1", "reward": 0.71},
-            72: {"address": "1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ", "reward": 0.72},
-            73: {"address": "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG", "reward": 0.73},
-            74: {"address": "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU", "reward": 0.74},
-            75: {"address": "1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR", "reward": 0.75},
-            76: {"address": "12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4", "reward": 0.76},
-            77: {"address": "1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv", "reward": 0.77},
-            78: {"address": "1J36UjUByGroXcCvmj13U6uwaVv9caEeAt", "reward": 0.78},
-            79: {"address": "1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF", "reward": 0.79},
-            80: {"address": "1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE", "reward": 0.80},
+            71: PuzzleTarget(71, "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU", 7.1),
+            72: PuzzleTarget(72, "1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR", 7.2),
+            73: PuzzleTarget(73, "12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4", 7.3),
+            74: PuzzleTarget(74, "1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv", 7.4),
+            76: PuzzleTarget(76, "1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF", 7.6),
+            77: PuzzleTarget(77, "1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE", 7.7),
+            78: PuzzleTarget(78, "15qF6X51huDjqTmF9BJgxXdt1xcj46Jmhb", 7.8),
+            79: PuzzleTarget(79, "1ARk8HWJMn8js8tQmGUJeQHjSE7KRkn2t8", 7.9),
         }
         
         for puzzle_num, info in known_puzzles.items():

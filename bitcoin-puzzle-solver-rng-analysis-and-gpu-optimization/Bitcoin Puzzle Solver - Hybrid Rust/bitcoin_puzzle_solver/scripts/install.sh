@@ -93,7 +93,7 @@ source ~/.cargo/env
 # Clone repository
 cd /workspace
 git clone https://github.com/darlingtonmatambanadzo/t7.git
-cd t7
+cd bitcoin-puzzle-solver-rng-analysis-and-gpu-optimization
 
 # Run installation script
 chmod +x scripts/install.sh

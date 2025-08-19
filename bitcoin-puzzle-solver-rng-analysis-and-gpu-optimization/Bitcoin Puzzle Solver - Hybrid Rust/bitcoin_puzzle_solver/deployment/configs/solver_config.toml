@@ -178,15 +178,14 @@ connection_timeout = 30
 # Predefined puzzle targets for quick access
 # Format: puzzle_number = "bitcoin_address"
 
-71 = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
-72 = "1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ"
-73 = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
-74 = "1EUXSxuUVy2PC5enGXR1a3HFYoLkGhNHvw"
-75 = "1ARjWDkZ7kT9fwjZ7sWMiVvti7ykU9Qd2t"
-76 = "1L2GM8eE7mJWLdo3HZS6su1832NX2txaac"
-77 = "1LeBZP5QCwwgXRtmVUvTVrraqPUokyLHqe"
-78 = "1PgQVLmst3Z314JrQn5TNiys8Hc38TcXJu"
-79 = "1DBaumZxUkM4qMQRt2LVWyFJq5kDtSZQot"
+71 = "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU"
+72 = "1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR"
+73 = "12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4"
+74 = "1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv"
+76 = "1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF"
+77 = "1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE"
+78 = "15qF6X51huDjqTmF9BJgxXdt1xcj46Jmhb"
+79 = "1ARk8HWJMn8js8tQmGUJeQHjSE7KRkn2t8"
 80 = "1Pie8JkxBT6MGPz9Nvi3fsPkr2D8q3GBc1"
 
 [advanced]

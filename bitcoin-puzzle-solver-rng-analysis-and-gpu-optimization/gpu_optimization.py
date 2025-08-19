@@ -15,6 +15,8 @@ from dataclasses import dataclass
 import json
 import threading
 import queue
+import csv
+from pathlib import Path
 
 # Try to import GPU libraries
 try:
@@ -64,6 +66,8 @@ class VastAIGPUOptimizer:
         self.cuda_kernels = {}
         self._detect_gpu()
         self._compile_kernels()
+        # Load solved puzzles data
+        self.solved_puzzles = self._load_solved_puzzles()
     
     def _load_gpu_configs(self) -> Dict[str, GPUConfig]:
         """Load GPU configurations for different vast.ai instances"""
@@ -330,6 +334,38 @@ class VastAIGPUOptimizer:
             logger.info("CUDA kernels compiled successfully")
         except Exception as e:
             logger.error(f"CUDA kernel compilation failed: {e}")
+    
+    def _load_solved_puzzles(self) -> List[Dict]:
+        """Load solved puzzles data from CSV"""
+        # Assuming the CSV file is in the same directory as this script
+        csv_path = Path(__file__).parent / "bitcoin-puzzle-solved-20250819.csv"
+        solved_puzzles = []
+        
+        if csv_path.exists():
+            try:
+                with open(csv_path, mode='r', newline='', encoding='utf-8') as csvfile:
+                    reader = csv.DictReader(csvfile)
+                    for row in reader:
+                        # Convert range_min and range_max to integers
+                        try:
+                            range_min_int = int(row['range_min'], 16) if row['range_min'] else 0
+                            range_max_int = int(row['range_max'], 16) if row['range_max'] else 0
+                            solved_puzzles.append({
+                                'puzzle_number': int(row['bits']),
+                                'private_key_range': f"{row['range_min']}:{row['range_max']}",
+                                'address': row['address'],
+                                'btc_value': float(row['btc_value']),
+                                'hash160_compressed': row['hash160_compressed'],
+                                'status': 'SOLVED'
+                            })
+                        except (ValueError, KeyError):
+                            continue
+            except Exception as e:
+                logger.error(f"Error reading CSV file: {e}")
+        else:
+            logger.warning("CSV file not found. Using empty list.")
+        
+        return solved_puzzles
     
     def get_optimal_grid_size(self, total_work: int) -> Tuple[int, int]:
         """Calculate optimal grid and block sizes for GPU"""
@@ -600,6 +636,11 @@ def main():
     # Initialize GPU optimizer
     optimizer = VastAIGPUOptimizer()
     
+    # Print loaded solved puzzles
+    print("Loaded Solved Puzzles:")
+    for puzzle in optimizer.solved_puzzles[:5]:  # Show first 5
+        print(f"Puzzle {puzzle['puzzle_number']}: {puzzle['private_key_range']} -> {puzzle['address']}")
+    
     # Benchmark performance
     metrics = optimizer.benchmark_gpu_performance()
     print(f"GPU Performance: {metrics.keys_per_second:,.0f} keys/sec")
@@ -618,4 +659,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

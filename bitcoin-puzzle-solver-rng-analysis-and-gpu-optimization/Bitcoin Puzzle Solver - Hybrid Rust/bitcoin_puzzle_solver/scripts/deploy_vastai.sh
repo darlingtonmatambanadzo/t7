@@ -92,7 +92,7 @@ source ~/.cargo/env
 
 # Clone repository (replace with your repo URL)
 cd /workspace
-git clone https://github.com/your-username/bitcoin-puzzle-solver.git
+git clone https://github.com/darlingtonmatambanadzo/t7/bitcoin-puzzle-solver-rng-analysis-and-gpu-optimization.git
 cd bitcoin-puzzle-solver
 
 # Run installation script
@@ -109,7 +109,7 @@ After=network.target
 Type=simple
 User=root
 WorkingDirectory=/workspace/bitcoin-puzzle-solver
-ExecStart=/workspace/bitcoin-puzzle-solver/rust_core/target/release/puzzle-solver solve -p 71 -a 1BgGZ9tcN4rm9KBzDn7KprQz87SZ26SAMH --spr
+ExecStart=/workspace/bitcoin-puzzle-solver/rust_core/target/release/puzzle-solver solve -p 71 -a 1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU --spr
 Restart=always
 RestartSec=10
 

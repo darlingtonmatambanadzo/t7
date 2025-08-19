@@ -604,17 +604,18 @@ def main():
     csv_manager = CSVKeyManager(security_manager)
     
     # Add some test data
-    print("Adding test solved puzzle...")
-    csv_manager.add_solved_puzzle(
-        puzzle_number=71,
-        private_key="20d45a6a762535700ce9e0b216e31994335db8a5000000000000000000000000",  # Valid 64-char hex key
-        public_key="0279BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798",  # Valid compressed public key
-        address="1By8rxztgeJeUX7qQjhAdmzQtAeqcE8Kd1",
-        solve_metadata={
-            "reward_btc": 0.71,
-            "solve_time_seconds": 3600,
-            "keys_tested": 1000000,
-            "search_method": "hot_zone_targeted"
+print("Adding test solved puzzle...")
+csv_manager.add_solved_puzzle(
+    puzzle_number=71,
+    private_key_range="700000000000000000:7fffffffffffffffff",  # Valid 64-char hex key
+    address="1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU",
+    solve_metadata={
+        "reward_btc": 7.1,
+        "solve_time_seconds": 3600,
+        "keys_tested": 100000000,
+        "search_method": "hot_zone_targeted"
+    }
+)
         }
     )
     

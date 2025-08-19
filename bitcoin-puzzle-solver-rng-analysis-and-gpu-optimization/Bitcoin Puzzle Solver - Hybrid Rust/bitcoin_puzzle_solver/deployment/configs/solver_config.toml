@@ -1,0 +1,243 @@
+# Bitcoin Puzzle Solver Configuration
+# Optimized for 4x NVIDIA A100 GPUs on vast.ai
+#
+# Author: Manus AI
+# Version: 1.0.0
+
+[system]
+# Target puzzle number (1-160)
+puzzle_number = 71
+
+# Maximum solving time in seconds (0 = unlimited)
+max_time_seconds = 3600
+
+# Logging level: debug, info, warn, error
+log_level = "info"
+
+# Number of worker threads for CPU operations
+worker_threads = 8
+
+# Enable detailed progress reporting
+verbose_progress = true
+
+# Progress reporting interval in seconds
+progress_interval = 60
+
+[gpu]
+# Enable GPU acceleration
+enabled = true
+
+# Batch size for GPU processing (keys per batch)
+batch_size = 1000000
+
+# Maximum concurrent batches across all GPUs
+max_concurrent_batches = 16
+
+# CUDA threads per block (must be multiple of 32)
+threads_per_block = 256
+
+# GPU memory allocation strategy: "conservative", "balanced", "aggressive"
+memory_strategy = "balanced"
+
+# Enable GPU memory pooling
+memory_pooling = true
+
+# GPU device selection (empty = use all available)
+device_ids = []
+
+# CUDA stream count per GPU
+streams_per_gpu = 4
+
+[ml]
+# Enable ML-guided hot zone prediction
+enabled = true
+
+# Path to trained model file
+model_path = "/app/models/hot_zone_model.joblib"
+
+# Path to training data CSV
+training_data_path = "/app/data/puzzle_data.csv"
+
+# Maximum number of hot zones to generate
+max_hot_zones = 5
+
+# Minimum confidence threshold for predictions (0.0-1.0)
+min_confidence = 0.1
+
+# Model parameters for Random Forest
+[ml.model_params]
+n_estimators = 100
+max_depth = 10
+min_samples_split = 5
+min_samples_leaf = 2
+random_state = 42
+n_jobs = -1
+
+[bsgs]
+# Baby step table size (2^baby_step_bits entries)
+baby_step_bits = 28
+
+# Enable GLV endomorphism optimization
+use_glv_endomorphism = true
+
+# Enable cache-aligned memory operations
+use_cache_alignment = true
+
+# Maximum memory usage for BSGS tables (MB)
+max_memory_mb = 16384
+
+# Number of parallel BSGS threads
+thread_count = 8
+
+# Progress reporting interval (giant steps)
+progress_interval = 1000000
+
+[security]
+# Enable military-grade security features
+enabled = true
+
+# Encryption algorithm: "aes256", "chacha20"
+encryption_algorithm = "aes256"
+
+# Key derivation function: "pbkdf2", "scrypt", "argon2"
+kdf_algorithm = "pbkdf2"
+
+# KDF iterations
+kdf_iterations = 100000
+
+# Enable secure memory clearing
+secure_memory_clear = true
+
+# Enable tamper detection
+tamper_detection = true
+
+# Audit log path
+audit_log_path = "/app/logs/security_audit.log"
+
+[monitoring]
+# Enable performance monitoring
+enabled = true
+
+# Prometheus metrics port
+prometheus_port = 9090
+
+# Grafana dashboard port
+grafana_port = 3000
+
+# Metrics update interval (seconds)
+update_interval = 10
+
+# Enable GPU monitoring
+gpu_monitoring = true
+
+# Enable system resource monitoring
+system_monitoring = true
+
+# Enable network monitoring
+network_monitoring = false
+
+# Metrics retention period (hours)
+retention_hours = 24
+
+[storage]
+# Results output directory
+results_dir = "/app/results"
+
+# Logs directory
+logs_dir = "/app/logs"
+
+# Temporary files directory
+temp_dir = "/app/temp"
+
+# Model cache directory
+model_cache_dir = "/app/cache/models"
+
+# Enable result compression
+compress_results = true
+
+# Backup interval (seconds, 0 = disabled)
+backup_interval = 3600
+
+[network]
+# Enable distributed computing (future feature)
+distributed_enabled = false
+
+# Coordinator address for distributed mode
+coordinator_address = ""
+
+# Network port for communication
+network_port = 8080
+
+# Enable TLS encryption
+tls_enabled = true
+
+# Connection timeout (seconds)
+connection_timeout = 30
+
+[puzzle_targets]
+# Predefined puzzle targets for quick access
+# Format: puzzle_number = "bitcoin_address"
+
+71 = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
+72 = "1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ"
+73 = "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG"
+74 = "1EUXSxuUVy2PC5enGXR1a3HFYoLkGhNHvw"
+75 = "1ARjWDkZ7kT9fwjZ7sWMiVvti7ykU9Qd2t"
+76 = "1L2GM8eE7mJWLdo3HZS6su1832NX2txaac"
+77 = "1LeBZP5QCwwgXRtmVUvTVrraqPUokyLHqe"
+78 = "1PgQVLmst3Z314JrQn5TNiys8Hc38TcXJu"
+79 = "1DBaumZxUkM4qMQRt2LVWyFJq5kDtSZQot"
+80 = "1Pie8JkxBT6MGPz9Nvi3fsPkr2D8q3GBc1"
+
+[advanced]
+# Advanced configuration options for experts
+
+# Enable experimental features
+experimental_features = false
+
+# Custom CUDA kernel path
+custom_kernel_path = ""
+
+# Enable assembly optimizations
+assembly_optimizations = true
+
+# Memory alignment (bytes)
+memory_alignment = 64
+
+# Cache line size (bytes)
+cache_line_size = 64
+
+# Enable NUMA awareness
+numa_aware = true
+
+# CPU affinity mask (hex)
+cpu_affinity = "0xFFFFFFFF"
+
+# Enable huge pages
+huge_pages = false
+
+# Custom random seed (0 = use system entropy)
+random_seed = 0
+
+[debugging]
+# Enable debugging features (performance impact)
+enabled = false
+
+# Debug log level: trace, debug
+debug_level = "debug"
+
+# Enable memory debugging
+memory_debugging = false
+
+# Enable CUDA debugging
+cuda_debugging = false
+
+# Enable profiling
+profiling = false
+
+# Profiling output directory
+profiling_dir = "/app/debug/profiles"
+
+# Enable core dumps
+core_dumps = false
+

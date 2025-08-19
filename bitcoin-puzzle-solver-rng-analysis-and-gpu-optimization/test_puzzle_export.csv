@@ -1,0 +1,12 @@
+# Bitcoin Puzzle Solver Export\n# Generated: 2025-07-21 13:01:28.007790\n# Format Version: 1.0\n# Total Puzzles: 10\n# Solved: 1, Unsolved: 9\n#\npuzzle_number,type,private_key,public_key,address,reward_btc,solve_time_seconds,keys_tested,search_method,hot_zone_hit,timestamp,verified,status,meta_reward_btc,meta_solve_time_seconds,meta_keys_tested,meta_search_method
+71,solved,20d45a6a762535700ce9e0b216e31994335db8a5000000000000000000000000,0279BE667EF9DCBBAC55A06295CE870B07029BFCDB2DCE28D959F2815B16F81798,1By8rxztgeJeUX7qQjhAdmzQtAeqcE8Kd1,0.71,3600,1000000,hot_zone_targeted,,1753117287.8752012,True,solved,0.71,3600.0,1000000.0,hot_zone_targeted
+72,unsolved,,,1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ,0.72,0,0,,,1753117287.8751276,False,unsolved,0.72,,,
+73,unsolved,,,19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG,0.73,0,0,,,1753117287.875129,False,unsolved,0.73,,,
+74,unsolved,,,1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU,0.74,0,0,,,1753117287.8751307,False,unsolved,0.74,,,
+75,unsolved,,,1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR,0.75,0,0,,,1753117287.8751318,False,unsolved,0.75,,,
+76,unsolved,,,12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4,0.76,0,0,,,1753117287.8751333,False,unsolved,0.76,,,
+77,unsolved,,,1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv,0.77,0,0,,,1753117287.8751352,False,unsolved,0.77,,,
+78,unsolved,,,1J36UjUByGroXcCvmj13U6uwaVv9caEeAt,0.78,0,0,,,1753117287.8751376,False,unsolved,0.78,,,
+79,unsolved,,,1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF,0.79,0,0,,,1753117287.87514,False,unsolved,0.79,,,
+80,unsolved,,,1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE,0.8,0,0,,,1753117287.8751411,False,unsolved,0.8,,,
+\n# SHA256: 3a76ae3a17a4ed1668f9a959de37bf24050b47f833e168708cd516283fb08797\n

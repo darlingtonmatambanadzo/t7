@@ -1,0 +1,22 @@
+{
+  "timestamp": 1753117553.0781634,
+  "tests_run": 15,
+  "failures": 1,
+  "errors": 0,
+  "success_rate": 93.33333333333333,
+  "benchmark_results": {
+    "ml_training": {
+      "data_load_time": 0.00611424446105957,
+      "training_time": 0.1766200065612793,
+      "model_score": 0.997698407892715
+    },
+    "encryption": {
+      "encryption_time_ms": 41.25615835189819,
+      "decryption_time_ms": 41.41503572463989
+    },
+    "csv_export": {
+      "export_time": 0.9136884212493896,
+      "puzzles_exported": 10
+    }
+  }
+}

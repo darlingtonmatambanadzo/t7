@@ -1,0 +1,160 @@
+[package]
+name = "bitcoin_puzzle_core"
+version = "2.0.0"
+edition = "2021"
+authors = ["Manus AI <manus@example.com>"]
+description = "High-performance Bitcoin puzzle solver with 35 mathematical optimizations"
+license = "MIT"
+
+[dependencies]
+# Core cryptographic libraries with optimizations
+secp256k1 = { version = "0.28", features = ["rand", "recovery", "global-context", "lowmemory"] }
+bitcoin = { version = "0.31", features = ["rand"] }
+k256 = { version = "0.13", features = ["arithmetic", "expose-field", "hash2curve", "ecdh"] }
+elliptic-curve = { version = "0.13", features = ["arithmetic", "sec1", "pkcs8"] }
+
+# High-performance arithmetic for optimizations 1-10
+num-bigint = { version = "0.4", features = ["rand", "serde"] }
+num-traits = "0.2"
+num-integer = "0.1"
+rug = { version = "1.19", features = ["integer", "rand", "serde"] }
+gmp-mpfr-sys = { version = "1.6", features = ["mpfr"] }
+
+# SIMD and vectorization for optimizations 11-20
+wide = { version = "0.7", features = ["serde"] }
+packed_simd = "0.3"
+
+# Parallel computing optimizations
+rayon = "1.7"
+crossbeam = "0.8"
+crossbeam-channel = "0.5"
+parking_lot = "0.12"
+
+# GPU computing (CUDA) for optimizations 11-20
+cudarc = { version = "0.9", features = ["f16"], optional = true }
+candle-core = { version = "0.3", features = ["cuda"], optional = true }
+
+# Cryptographic hash functions
+sha2 = "0.10"
+sha3 = "0.10"
+blake3 = "1.4"
+ripemd = "0.1"
+hmac = "0.12"
+pbkdf2 = "0.12"
+
+# Encryption and security
+aes-gcm = "0.10"
+chacha20poly1305 = "0.10"
+zeroize = { version = "1.6", features = ["zeroize_derive"] }
+secrecy = "0.8"
+
+# Random number generation with optimization
+rand = { version = "0.8", features = ["small_rng", "simd_support"] }
+rand_chacha = "0.3"
+rand_xoshiro = "0.6"
+getrandom = "0.2"
+
+# Serialization and data handling
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+bincode = "1.3"
+hex = "0.4"
+base58 = "0.2"
+base64 = "0.21"
+
+# Async runtime and networking
+tokio = { version = "1.0", features = ["full"] }
+futures = "0.3"
+
+# Error handling and logging
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+env_logger = "0.10"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# CLI and configuration
+clap = { version = "4.0", features = ["derive", "env"] }
+config = "0.13"
+toml = "0.8"
+
+# Mathematical libraries for statistical optimizations
+nalgebra = { version = "0.32", features = ["serde-serialize"] }
+ndarray = { version = "0.15", features = ["serde", "rayon"] }
+statrs = "0.16"
+special = "0.10"
+
+# Performance monitoring and profiling
+criterion = { version = "0.5", features = ["html_reports"], optional = true }
+pprof = { version = "0.12", features = ["criterion", "flamegraph"], optional = true }
+
+# Memory management optimization
+mimalloc = { version = "0.1", default-features = false }
+jemalloc-sys = { version = "0.5", optional = true }
+
+# FFI for Python integration
+pyo3 = { version = "0.19", features = ["extension-module"] }
+
+# Database and storage
+rocksdb = { version = "0.21", optional = true }
+sled = { version = "0.34", optional = true }
+
+# Network and communication
+reqwest = { version = "0.11", features = ["json"], optional = true }
+tungstenite = { version = "0.20", optional = true }
+
+[features]
+default = ["simd", "parallel", "security"]
+gpu = ["cudarc", "candle-core"]
+simd = ["wide", "packed_simd"]
+parallel = ["rayon", "crossbeam"]
+profiling = ["criterion", "pprof"]
+security = ["aes-gcm", "chacha20poly1305", "zeroize", "secrecy"]
+storage = ["rocksdb", "sled"]
+network = ["reqwest", "tungstenite"]
+jemalloc = ["jemalloc-sys"]
+
+[lib]
+name = "bitcoin_puzzle_core"
+crate-type = ["cdylib", "rlib"]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+overflow-checks = false
+
+[profile.release-with-debug]
+inherits = "release"
+debug = true
+strip = false
+
+[profile.dev]
+opt-level = 1
+debug = true
+
+# Target-specific optimizations
+[target.'cfg(target_arch = "x86_64")']
+rustflags = [
+    "-C", "target-cpu=native",
+    "-C", "target-feature=+avx2,+fma,+aes,+sse4.2",
+    "-C", "link-arg=-fuse-ld=lld"
+]
+
+[[bin]]
+name = "puzzle_solver"
+path = "src/bin/main.rs"
+
+[[bench]]
+name = "crypto_benchmarks"
+harness = false
+required-features = ["profiling"]
+
+[[bench]]
+name = "optimization_benchmarks"
+harness = false
+required-features = ["profiling"]
+

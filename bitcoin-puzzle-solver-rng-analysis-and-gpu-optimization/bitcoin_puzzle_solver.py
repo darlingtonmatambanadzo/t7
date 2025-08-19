@@ -240,16 +240,14 @@ class BitcoinPuzzleSolver:
         """Load known puzzle targets and addresses"""
         # Known unsolved puzzles with their addresses
         known_targets = {
-            71: PuzzleTarget(71, "1By8rxztgeJeUX7qQjhAdmzQtAeqcE8Kd1", 0.71),
-            72: PuzzleTarget(72, "1MVDYgVaSN6iKKEsbzRUAYFrYJadLYZvvZ", 0.72),
-            73: PuzzleTarget(73, "19vkiEajfhuZ8bs8Zu2jgmC6oqZbWqhxhG", 0.73),
-            74: PuzzleTarget(74, "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU", 0.74),
-            75: PuzzleTarget(75, "1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR", 0.75),
-            76: PuzzleTarget(76, "12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4", 0.76),
-            77: PuzzleTarget(77, "1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv", 0.77),
-            78: PuzzleTarget(78, "1J36UjUByGroXcCvmj13U6uwaVv9caEeAt", 0.78),
-            79: PuzzleTarget(79, "1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF", 0.79),
-            80: PuzzleTarget(80, "1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE", 0.80),
+            71: PuzzleTarget(71, "1PWo3JeB9jrGwfHDNpdGK54CRas7fsVzXU", 7.1),
+            72: PuzzleTarget(72, "1JTK7s9YVYywfm5XUH7RNhHJH1LshCaRFR", 7.2),
+            73: PuzzleTarget(73, "12VVRNPi4SJqUTsp6FmqDqY5sGosDtysn4", 7.3),
+            74: PuzzleTarget(74, "1FWGcVDK3JGzCC3WtkYetULPszMaK2Jksv", 7.4),
+            76: PuzzleTarget(76, "1DJh2eHFYQfACPmrvpyWc8MSTYKh7w9eRF", 7.6),
+            77: PuzzleTarget(77, "1Bxk4CQdqL9p22JEtDfdXMsng1XacifUtE", 7.7),
+            78: PuzzleTarget(78, "15qF6X51huDjqTmF9BJgxXdt1xcj46Jmhb", 7.8),
+            79: PuzzleTarget(79, "1ARk8HWJMn8js8tQmGUJeQHjSE7KRkn2t8", 7.9),
         }
         
         for puzzle_num, target in known_targets.items():
